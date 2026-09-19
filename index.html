@@ -1,0 +1,511 @@
+<title>HES Project Partner</title>
+<meta name="description" content="Homepage design concept for Hotel Equipment Suppliers, reframed for hotel brands, owners, owners' representatives, architects and designers.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  :root{
+    --ink:#073C5C;
+    --ink-2:#0B4B72;
+    --ocean:#008EAE;
+    --aqua:#63D7C5;
+    --mist:#EAF3F4;
+    --paper:#FBFAF6;
+    --paper-2:#F3F0E8;
+    --cream:#FFFFFF;
+    --line: rgba(7,60,92,.16);
+    --line-2: rgba(7,60,92,.28);
+    --text: #0E2E40;
+    --text-soft: rgba(14,46,64,.68);
+    --on-ink: #F6FBFA;
+    --on-ink-soft: rgba(246,251,250,.72);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Lato', ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --shadow: 0 24px 60px -30px rgba(7,60,92,.35);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#EAF6F4; --ink-2:#DDEFEC;
+      --ocean:#5FD3C4; --aqua:#8FE6D8;
+      --mist:#0E3244; --paper:#07202E; --paper-2:#0C2A39; --cream:#0A2734;
+      --line: rgba(234,246,244,.16); --line-2: rgba(234,246,244,.28);
+      --text:#EAF3F2; --text-soft: rgba(234,243,242,.7);
+      --on-ink:#0A2431; --on-ink-soft: rgba(10,36,49,.72);
+      --shadow: 0 24px 60px -30px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#EAF6F4; --ink-2:#DDEFEC;
+    --ocean:#5FD3C4; --aqua:#8FE6D8;
+    --mist:#0E3244; --paper:#07202E; --paper-2:#0C2A39; --cream:#0A2734;
+    --line: rgba(234,246,244,.16); --line-2: rgba(234,246,244,.28);
+    --text:#EAF3F2; --text-soft: rgba(234,243,242,.7);
+    --on-ink:#0A2431; --on-ink-soft: rgba(10,36,49,.72);
+    --shadow: 0 24px 60px -30px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;padding-inline:0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  button,input,select,textarea{font:inherit;color:inherit}
+  button{cursor:pointer}
+  .wrap{max-width:1280px;margin:0 auto;padding-inline:clamp(20px,4vw,48px)}
+  .sheet{padding-block:clamp(64px,9vw,120px)}
+
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;font-weight:600;color:var(--ocean);text-transform:uppercase}
+  .eyebrow .no{color:var(--text-soft);font-weight:500}
+  .eyebrow::before{content:'';width:16px;height:1px;background:var(--ocean)}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.02em;margin:0;text-wrap:balance}
+  .lede{font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:var(--text-soft);max-width:56ch;text-wrap:pretty}
+  .rule{border:0;border-top:1px solid var(--line);margin:0}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font-family:var(--sans);font-weight:900;font-size:13px;letter-spacing:.01em;border:1px solid transparent;transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--ink);color:var(--on-ink)}
+  .btn-primary:hover{background:var(--ocean)}
+  .btn-ghost{border-color:var(--line-2);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink);background:var(--mist)}
+  .btn-on-ink{background:var(--aqua);color:#07222A}
+  .btn-on-ink:hover{background:var(--on-ink)}
+
+  /* Nav */
+  .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb, var(--paper) 92%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:1280px;margin:0 auto;padding:16px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand img{height:38px;width:auto}
+  .brand span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--text-soft);display:none}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:13px;font-weight:700;list-style:none;margin:0;padding:0}
+  .nav-links a{position:relative;padding-bottom:3px;color:var(--text)}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--ocean);transition:width .2s}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .menu-btn{display:none;background:none;border:1px solid var(--line-2);padding:9px 11px}
+  .menu-btn span{display:block;width:18px;height:1.5px;background:var(--ink);margin:4px 0}
+
+  /* Hero */
+  .hero{position:relative;background:var(--ink);color:var(--on-ink);overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;min-height:min(88vh,820px)}
+  .hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,88px) clamp(20px,4vw,64px)}
+  .hero-visual{position:relative;min-height:340px}
+  .hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg, var(--ink) 0%, rgba(7,60,92,.05) 16%, transparent 40%)}
+  .hero-kicker{color:var(--aqua);margin-bottom:22px}
+  .hero h1{font-size:clamp(38px,4.6vw,60px);line-height:1.04;max-width:14ch}
+  .hero h1 em{font-style:normal;color:var(--aqua)}
+  .hero .lede{color:var(--on-ink-soft);margin:24px 0 34px;max-width:46ch}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px}
+  .hero-facts{display:grid;grid-template-columns:repeat(3,auto);gap:0;border-top:1px solid rgba(246,251,250,.22);padding-top:20px;width:fit-content}
+  .hero-fact{padding:0 26px;border-right:1px solid rgba(246,251,250,.22)}
+  .hero-fact:first-child{padding-left:0}
+  .hero-fact:last-child{border-right:0}
+  .hero-fact b{display:block;font-family:var(--serif);font-size:22px;color:var(--aqua);font-weight:500}
+  .hero-fact span{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--on-ink-soft)}
+
+  /* Ticker */
+  .ticker{background:var(--aqua);color:#07222A;overflow:hidden;white-space:nowrap;padding:12px 0;border-bottom:1px solid rgba(7,34,42,.12)}
+  .ticker-track{display:inline-block;animation:marquee 34s linear infinite;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+  .ticker-track span{margin:0 20px}
+  .ticker-track .dot{color:#07222A;opacity:.5}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){ .ticker-track{animation:none} }
+
+  /* Audience section */
+  .roles{background:var(--paper)}
+  .sheet-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:48px;flex-wrap:wrap}
+  .sheet-head h2{font-size:clamp(30px,3.6vw,46px);max-width:20ch;margin-top:14px}
+  .role-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .role-card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 26px;display:flex;flex-direction:column;gap:16px;min-height:300px;background:var(--paper);transition:background .25s}
+  .role-card:hover{background:var(--mist)}
+  .role-card .idx{font-family:var(--mono);font-size:11px;color:var(--text-soft)}
+  .role-card h3{font-size:22px;line-height:1.15;max-width:18ch}
+  .role-card p{font-size:13.5px;line-height:1.6;color:var(--text-soft);margin:0;flex:1}
+  .role-card .link{font-family:var(--sans);font-weight:800;font-size:11.5px;letter-spacing:.02em;display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
+  .role-card .link span{transition:transform .2s}
+  .role-card:hover .link span{transform:translateX(4px)}
+
+  /* Capability grid */
+  .capability{background:var(--ink);color:var(--on-ink)}
+  .capability .eyebrow{color:var(--aqua)}
+  .capability .sheet-head h2{color:var(--on-ink)}
+  .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(246,251,250,.18);border-left:1px solid rgba(246,251,250,.18)}
+  .cap-card{border-right:1px solid rgba(246,251,250,.18);border-bottom:1px solid rgba(246,251,250,.18);padding:32px 26px;min-height:230px;display:flex;flex-direction:column;gap:14px}
+  .cap-num{font-family:var(--mono);font-size:11px;color:var(--aqua)}
+  .cap-card h3{font-size:21px;color:var(--on-ink);max-width:20ch}
+  .cap-card p{font-size:13px;line-height:1.6;color:var(--on-ink-soft);margin:0;max-width:34ch}
+
+  /* Proof plates (kitchen/laundry) */
+  .plates{background:var(--paper-2)}
+  .plates-intro{max-width:640px;margin-bottom:54px}
+  .plate-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  .plate{background:var(--cream);border:1px solid var(--line);box-shadow:var(--shadow)}
+  .plate-img{overflow:hidden;border-bottom:1px solid var(--line)}
+  .plate-img img{width:100%;display:block}
+  .plate-cap{padding:18px 22px;display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+  .plate-cap b{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ocean)}
+  .plate-cap span{font-size:12.5px;color:var(--text-soft)}
+
+  /* Featured amenity strip */
+  .amenity{display:grid;grid-template-columns:.85fr 1.15fr;background:var(--mist);min-height:420px}
+  .amenity-visual{position:relative;min-height:260px}
+  .amenity-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .amenity-copy{padding:clamp(34px,5vw,70px) clamp(20px,4vw,70px);display:flex;flex-direction:column;justify-content:center}
+  .amenity-copy h3{font-size:clamp(24px,2.6vw,34px);margin:14px 0 16px;max-width:20ch}
+  .amenity-copy p{font-size:14px;line-height:1.65;color:var(--text-soft);max-width:42ch;margin:0 0 22px}
+
+  /* Process */
+  .process{background:var(--paper)}
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);margin-top:14px}
+  .step{padding:22px 18px 0 0;min-height:190px}
+  .step+.step{border-left:1px solid var(--line);padding-left:18px}
+  .step .n{font-family:var(--mono);color:var(--ocean);font-size:12px}
+  .step h4{font-family:var(--serif);font-weight:500;font-size:21px;margin:26px 0 8px;letter-spacing:-.01em}
+  .step p{font-size:12px;line-height:1.6;color:var(--text-soft);margin:0}
+
+  /* Ecosystem */
+  .ecosystem{background:var(--paper)}
+  .eco-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .eco-card{border:1px solid var(--line);padding:30px;display:flex;flex-direction:column;gap:12px;background:var(--cream)}
+  .eco-card b{font-family:var(--mono);font-size:11px;color:var(--ocean);letter-spacing:.05em}
+  .eco-card h3{font-size:22px}
+  .eco-card p{font-size:13.5px;line-height:1.6;color:var(--text-soft);margin:0}
+  .eco-card .link{margin-top:4px;font-weight:800;font-size:11.5px;display:inline-flex;gap:8px}
+
+  /* Quote */
+  .quote{position:relative;min-height:420px;color:var(--on-ink);display:flex;align-items:flex-end;overflow:hidden}
+  .quote img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .quote::before{content:'';position:absolute;inset:0;background:linear-gradient(0deg, rgba(7,32,46,.86), rgba(7,32,46,.15) 65%)}
+  .quote-inner{position:relative;z-index:1;padding:54px clamp(20px,4vw,48px);max-width:1280px;margin:0 auto;width:100%}
+  .quote blockquote{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.4vw,44px);line-height:1.15;max-width:22ch;letter-spacing:-.01em}
+  .quote cite{display:block;margin-top:18px;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--aqua)}
+
+  /* Contact */
+  .contact{background:var(--ink);color:var(--on-ink)}
+  .contact .eyebrow{color:var(--aqua)}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px}
+  .contact h2{color:var(--on-ink);font-size:clamp(30px,3.6vw,46px);margin:14px 0 18px;max-width:16ch}
+  .contact p.lede{color:var(--on-ink-soft)}
+  .contact-links{margin-top:36px;display:grid;gap:12px}
+  .contact-links a{font-size:13.5px;font-weight:700;display:inline-flex;gap:12px;align-items:center}
+  .contact-links a span{color:var(--aqua)}
+  .form{border-top:1px solid rgba(246,251,250,.24);padding-top:8px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .field{border-bottom:1px solid rgba(246,251,250,.28);padding:16px 0 10px;margin-bottom:2px}
+  .field label{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--aqua);margin-bottom:7px}
+  .field input,.field select,.field textarea{width:100%;background:transparent;border:0;outline:0;color:var(--on-ink);font-size:14px;resize:none}
+  .field select option{color:var(--ink)}
+  .field input::placeholder,.field textarea::placeholder{color:var(--on-ink-soft)}
+  .submit{margin-top:22px;width:100%;padding:16px 18px;background:var(--aqua);color:#07222A;border:0;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:space-between}
+  .submit:hover{background:var(--on-ink)}
+  .form-note{font-size:10.5px;color:var(--on-ink-soft);margin:12px 0 0}
+
+  footer{background:var(--ink);color:var(--on-ink-soft);border-top:1px solid rgba(246,251,250,.16)}
+  .foot-grid{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:32px;padding-block:52px}
+  .foot-brand img{height:30px;margin-bottom:14px}
+  .foot-brand p{font-size:12.5px;line-height:1.6;max-width:32ch;color:var(--on-ink-soft)}
+  .foot-col b{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--aqua);margin-bottom:14px}
+  .foot-col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:13px}
+  .foot-col a:hover{color:var(--aqua)}
+  .foot-bottom{border-top:1px solid rgba(246,251,250,.16);padding:20px clamp(20px,4vw,48px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11px}
+  .foot-bottom .links{display:flex;gap:20px;flex-wrap:wrap}
+
+  @media (max-width:980px){
+    .nav-links,.nav-cta .btn-ghost{display:none}
+    .menu-btn{display:block}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-visual{min-height:280px;order:-1}
+    .hero-visual::after{background:linear-gradient(0deg, var(--ink) 0%, transparent 55%)}
+    .hero-facts{grid-template-columns:repeat(3,1fr);width:100%}
+    .role-grid{grid-template-columns:1fr 1fr}
+    .cap-grid{grid-template-columns:1fr 1fr}
+    .plate-grid{grid-template-columns:1fr}
+    .amenity{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .step:nth-child(odd){border-left:0;padding-left:0}
+    .eco-grid{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:1fr;gap:40px}
+    .row{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:28px}
+  }
+  @media (max-width:560px){
+    .role-grid,.cap-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .step{border-left:0!important;padding-left:0!important;border-top:1px solid var(--line);padding-top:18px;min-height:auto}
+    .step:first-child{border-top:0}
+    .foot-grid{grid-template-columns:1fr}
+    .hero-facts{grid-template-columns:1fr;gap:14px}
+    .hero-fact{border-right:0;border-bottom:1px solid rgba(246,251,250,.22);padding:0 0 12px}
+  }
+</style>
+
+<header class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><img src="assets/hes-logo.png" alt="Hotel Equipment Suppliers"><span>Hospitality, considered.</span></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#roles">For your role</a></li>
+        <li><a href="#capability">Capability</a></li>
+        <li><a href="#design-flow">Design &amp; flow</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#ecosystem">Ecosystem</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="tel:+27686119152">+27 68 611 9152</a>
+      <a class="btn btn-primary" href="#contact">Start a project</a>
+    </div>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')"><span></span><span></span></button>
+  </div>
+  <nav id="mnav" style="display:none;flex-direction:column;gap:2px;padding:6px clamp(20px,4vw,48px) 18px;border-top:1px solid var(--line)">
+    <a class="btn btn-ghost" style="justify-content:flex-start;border:0;padding:10px 0" href="#roles">For your role</a>
+    <a class="btn btn-ghost" style="justify-content:flex-start;border:0;padding:10px 0" href="#capability">Capability</a>
+    <a class="btn btn-ghost" style="justify-content:flex-start;border:0;padding:10px 0" href="#design-flow">Design &amp; flow</a>
+    <a class="btn btn-ghost" style="justify-content:flex-start;border:0;padding:10px 0" href="#process">Process</a>
+    <a class="btn btn-ghost" style="justify-content:flex-start;border:0;padding:10px 0" href="#ecosystem">Ecosystem</a>
+    <a class="btn btn-primary" style="margin-top:10px" href="#contact">Start a project</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow hero-kicker">Hospitality procurement — RSA · Africa · Indian Ocean</div>
+        <h1 id="hero-title">Hospitality, considered — from the <em>drawing board</em> to opening day.</h1>
+        <p class="lede">HES is the single procurement partner hotel brands, owners, owners' representatives and design teams bring in to turn a brief, a BOQ or a set of drawings into a fully equipped, fully specified property.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-on-ink" href="#contact">Start your project <span>→</span></a>
+          <a class="btn btn-ghost" style="border-color:rgba(246,251,250,.4);color:var(--on-ink)" href="#roles">Find your role <span>↓</span></a>
+        </div>
+        <div class="hero-facts" aria-label="HES at a glance">
+          <div class="hero-fact"><b>2018</b><span>Established</span></div>
+          <div class="hero-fact"><b>Level 2</b><span>B-BBEE contributor</span></div>
+          <div class="hero-fact"><b>One</b><span>Partner, brief to delivery</span></div>
+        </div>
+      </div>
+      <div class="hero-visual"><img src="assets/hero-suite.jpg" alt="Considered guest room interior specified for a hospitality project" loading="eager"></div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Office</span><span class="dot">·</span><span>Back of house</span><span class="dot">·</span><span>Guest rooms</span><span class="dot">·</span><span>Restaurants</span><span class="dot">·</span><span>Housekeeping</span><span class="dot">·</span><span>Front office</span><span class="dot">·</span><span>Collateral</span><span class="dot">·</span><span>Uniforms</span><span class="dot">·</span><span>Kitchen design</span><span class="dot">·</span><span>Laundry design</span><span class="dot">·</span><span>OS&amp;E</span><span class="dot">·</span><span>FF&amp;E</span><span class="dot">·</span><span>Import &amp; export</span><span class="dot">·</span><span>#HospitalityConsidered</span><span class="dot">·</span>
+      <span>Office</span><span class="dot">·</span><span>Back of house</span><span class="dot">·</span><span>Guest rooms</span><span class="dot">·</span><span>Restaurants</span><span class="dot">·</span><span>Housekeeping</span><span class="dot">·</span><span>Front office</span><span class="dot">·</span><span>Collateral</span><span class="dot">·</span><span>Uniforms</span><span class="dot">·</span><span>Kitchen design</span><span class="dot">·</span><span>Laundry design</span><span class="dot">·</span><span>OS&amp;E</span><span class="dot">·</span><span>FF&amp;E</span><span class="dot">·</span><span>Import &amp; export</span><span class="dot">·</span><span>#HospitalityConsidered</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <section class="sheet roles" id="roles">
+    <div class="wrap">
+      <div class="sheet-head">
+        <div>
+          <div class="eyebrow"><span class="no">Sheet 01</span> — Who we work with</div>
+          <h2>Built around the role you play in a hospitality project.</h2>
+        </div>
+        <p class="lede">Every property has four kinds of stakeholder at the table. HES is set up to talk to each one in the terms that matter to them.</p>
+      </div>
+      <div class="role-grid">
+        <article class="role-card">
+          <span class="idx">01 — BRAND</span>
+          <h3>Hotel Brands &amp; Operators</h3>
+          <p>Brand standards held to the letter, property after property — consistent FF&amp;E and OS&amp;E specification, supplier governance and operational replenishment once doors open.</p>
+          <a class="link" href="#contact">Discuss a brand rollout <span>→</span></a>
+        </article>
+        <article class="role-card">
+          <span class="idx">02 — OWNER</span>
+          <h3>Owners &amp; Developers</h3>
+          <p>One accountable partner from CAPEX budget to final delivery — total-cost-of-ownership sourcing and consolidated procurement that keeps a project on budget and on programme.</p>
+          <a class="link" href="#contact">Talk through your project <span>→</span></a>
+        </article>
+        <article class="role-card">
+          <span class="idx">03 — OWNER'S REP</span>
+          <h3>Owners' Representatives</h3>
+          <p>Structured BOQs, supplier governance and documentation that slot straight into your project controls, cost reporting and client sign-off process.</p>
+          <a class="link" href="#contact">Request a procurement plan <span>→</span></a>
+        </article>
+        <article class="role-card">
+          <span class="idx">04 — DESIGN</span>
+          <h3>Architects &amp; Designers</h3>
+          <p>Kitchen and laundry flow design, product specification and sourcing that stays true to design intent, hygiene compliance and back-of-house workflow.</p>
+          <a class="link" href="#design-flow">See how we work with drawings <span>→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet capability" id="capability">
+    <div class="wrap">
+      <div class="sheet-head">
+        <div>
+          <div class="eyebrow"><span class="no">Sheet 02</span> — Capability</div>
+          <h2>Six disciplines. One point of accountability.</h2>
+        </div>
+        <p class="lede" style="color:var(--on-ink-soft)">We hold the relationships, the specifications and the paperwork so your team only has to hold one conversation.</p>
+      </div>
+      <div class="cap-grid">
+        <article class="cap-card"><span class="cap-num">01</span><h3>Pre-opening &amp; FF&amp;E / OS&amp;E</h3><p>Full pre-opening procurement coordination, from opening lists to final installation.</p></article>
+        <article class="cap-card"><span class="cap-num">02</span><h3>Design &amp; flow</h3><p>Commercial kitchen and laundry layout planning built around workflow, hygiene and throughput.</p></article>
+        <article class="cap-card"><span class="cap-num">03</span><h3>Specification &amp; BOQ</h3><p>Bills of quantity and product specification developed against your drawings and brand standard.</p></article>
+        <article class="cap-card"><span class="cap-num">04</span><h3>Uniforms &amp; collateral</h3><p>Role-based uniform programmes and printed collateral, specified and produced on brand.</p></article>
+        <article class="cap-card"><span class="cap-num">05</span><h3>Import &amp; export</h3><p>Cross-border sourcing and documentation across South Africa, Africa and the Indian Ocean.</p></article>
+        <article class="cap-card"><span class="cap-num">06</span><h3>Procurement governance</h3><p>Structured sourcing and decision-support, extended through the PROCURAF platform.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet plates" id="design-flow">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">Sheet 03</span> — Design &amp; flow</div>
+      <h2 style="font-size:clamp(30px,3.6vw,46px);margin-top:14px">We think in the same drawings you do.</h2>
+      <p class="lede plates-intro" style="margin-top:18px">Before we specify a single item, we work through the layout: receiving, storage, preparation, service and return — mapped for one-way flow, hygiene compliance and the pace your operation actually runs at.</p>
+      <div class="plate-grid">
+        <figure class="plate">
+          <div class="plate-img"><img src="assets/kitchen-flow.jpg" alt="Sample commercial kitchen layout and workflow diagram for a 60-cover hotel kitchen"></div>
+          <figcaption class="plate-cap"><b>REF. KITCHEN–01</b><span>Commercial kitchen · flow for 60 covers</span></figcaption>
+        </figure>
+        <figure class="plate">
+          <div class="plate-img"><img src="assets/laundry-flow.jpg" alt="Sample laundry facility layout diagram for a 200-room hotel"></div>
+          <figcaption class="plate-cap"><b>REF. LAUNDRY–01</b><span>Laundry facility · 200-room hotel</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="amenity" aria-labelledby="amenity-title">
+    <div class="amenity-visual"><img src="assets/amenities.jpg" alt="Refillable guest amenity dispensers specified for a hotel bathroom"></div>
+    <div class="amenity-copy">
+      <div class="eyebrow">A smarter amenity programme</div>
+      <h3 id="amenity-title">Specified for the brand. Practical for housekeeping.</h3>
+      <p>Refillable, tamper-resistant dispenser systems replace single-use minis without compromising the guest experience — a detail brand standards teams increasingly require and sustainability policies increasingly reward.</p>
+      <a class="btn btn-ghost" href="#contact">Plan a dispenser programme <span>→</span></a>
+    </div>
+  </section>
+
+  <section class="sheet process" id="process">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">Sheet 04</span> — Process</div>
+      <h2 style="font-size:clamp(30px,3.6vw,46px);margin-top:14px;max-width:18ch">One team, from first brief to final delivery.</h2>
+      <div class="steps">
+        <article class="step"><span class="n">01</span><h4>Discover</h4><p>We review drawings, brand standard and commercial priorities before a single item is specified.</p></article>
+        <article class="step"><span class="n">02</span><h4>Specify</h4><p>We build the BOQ against your layout, timeline and budget — for sign-off, not surprises.</p></article>
+        <article class="step"><span class="n">03</span><h4>Source</h4><p>We shape a practical, brand-right mix across local and imported supply.</p></article>
+        <article class="step"><span class="n">04</span><h4>Deliver</h4><p>We coordinate logistics, import/export and installation to your programme.</p></article>
+        <article class="step"><span class="n">05</span><h4>Support</h4><p>We remain the single point of contact for operational replenishment after opening.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet ecosystem" id="ecosystem">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">Sheet 05</span> — The HES ecosystem</div>
+      <h2 style="font-size:clamp(30px,3.6vw,46px);margin-top:14px">Beyond procurement, when a project needs it.</h2>
+      <div class="eco-grid" style="margin-top:40px">
+        <article class="eco-card">
+          <b>PROCURAF</b>
+          <h3>Procurement operating &amp; governance</h3>
+          <p>An intelligent procurement operating, governance and decision-support layer for teams managing multiple projects or suppliers.</p>
+          <a class="link" style="color:var(--ink)" href="https://hotelequip.co.za/procuraf.html" target="_blank" rel="noopener">Visit PROCURAF <span>↗</span></a>
+        </article>
+        <article class="eco-card">
+          <b>SOURCECONNECT RSA · "You need it. We source it."</b>
+          <h3>Managed sourcing &amp; procurement support</h3>
+          <p>A managed sourcing service within the HES ecosystem for hard-to-place, local or once-off procurement requirements.</p>
+          <a class="link" style="color:var(--ink)" href="https://hotelequip.co.za/sourceconnect-rsa.html" target="_blank" rel="noopener">Visit SourceConnect RSA <span>↗</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote" aria-label="Hospitality philosophy">
+    <img src="assets/dining.jpg" alt="A considered restaurant table setting" loading="lazy">
+    <div class="quote-inner">
+      <blockquote>&ldquo;Good hospitality is felt in the details — long before a guest finds the words for it.&rdquo;</blockquote>
+      <cite>HES — Hospitality, considered.</cite>
+    </div>
+  </section>
+
+  <section class="sheet contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="eyebrow">Sheet 06 — Start a project</div>
+        <h2>Tell us what your property needs.</h2>
+        <p class="lede">Opening, refurbishing or restocking — share a little about your project, your role and your timeline, and our project team will come back with a considered next step.</p>
+        <div class="contact-links">
+          <a href="tel:+27686119152"><span>↗</span> +27 68 611 9152</a>
+          <a href="mailto:orders@hotelequip.co.za"><span>↗</span> orders@hotelequip.co.za</a>
+          <a href="https://www.linkedin.com/company/hotel-equipment-suppliers-pty-ltd" target="_blank" rel="noopener"><span>↗</span> Follow HES on LinkedIn</a>
+        </div>
+      </div>
+      <form class="form" id="contact-form">
+        <div class="row">
+          <div class="field"><label for="name">Your name *</label><input id="name" name="name" autocomplete="name" placeholder="e.g. Thandiwe Nkosi" required></div>
+          <div class="field"><label for="company">Company / property *</label><input id="company" name="company" placeholder="Property or practice name" required></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" autocomplete="email" placeholder="name@company.com" required></div>
+          <div class="field"><label for="role">Your role *</label>
+            <select id="role" name="role" required>
+              <option value="">Select one</option>
+              <option>Hotel brand / operator</option>
+              <option>Owner / developer</option>
+              <option>Owner's representative</option>
+              <option>Architect / designer</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field" style="grid-column:1/-1"><label for="stage">Project stage</label>
+            <select id="stage" name="stage">
+              <option>Concept &amp; feasibility</option>
+              <option>Design development</option>
+              <option>Procurement &amp; BOQ</option>
+              <option>Pre-opening</option>
+              <option>Operational replenishment</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="message">How can we help? *</label><textarea id="message" name="message" rows="4" placeholder="Tell us about the property, the brief and your timeline..." required></textarea></div>
+        <button class="submit" type="submit">Send to our project team <b>↗</b></button>
+        <p class="form-note">Opens your email client with your enquiry addressed to orders@hotelequip.co.za.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="assets/hes-logo.png" alt="Hotel Equipment Suppliers">
+      <p>Hospitality procurement, project support and operational supply across South Africa, Africa and the Indian Ocean.</p>
+    </div>
+    <div class="foot-col">
+      <b>HES</b>
+      <ul><li><a href="#top">Home</a></li><li><a href="#capability">Capabilities</a></li><li><a href="#design-flow">Design &amp; flow</a></li><li><a href="#contact">Contact</a></li></ul>
+    </div>
+    <div class="foot-col">
+      <b>Ecosystem</b>
+      <ul><li><a href="https://hotelequip.co.za/procuraf.html" target="_blank" rel="noopener">PROCURAF</a></li><li><a href="https://hotelequip.co.za/sourceconnect-rsa.html" target="_blank" rel="noopener">SourceConnect RSA</a></li><li><a href="#">SchoolRide-RSA (Impact)</a></li></ul>
+    </div>
+    <div class="foot-col">
+      <b>Connect</b>
+      <ul><li><a href="https://www.linkedin.com/company/hotel-equipment-suppliers-pty-ltd" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="#">Facebook</a></li><li><a href="#">Instagram</a></li></ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span id="year"></span> Hotel Equipment Suppliers (Pty) Ltd. Design concept for review — not the production site.</span>
+    <div class="links"><a href="#">Privacy notice</a><a href="#">Website terms</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = new FormData(e.target);
+    var body = 'Name: ' + f.get('name') + '\nCompany / property: ' + f.get('company') + '\nEmail: ' + f.get('email') +
+      '\nRole: ' + f.get('role') + '\nProject stage: ' + f.get('stage') + '\n\nRequirements:\n' + f.get('message');
+    window.location.href = 'mailto:orders@hotelequip.co.za?subject=' + encodeURIComponent('HES project enquiry — ' + f.get('company')) + '&body=' + encodeURIComponent(body);
+  });
+</script>
